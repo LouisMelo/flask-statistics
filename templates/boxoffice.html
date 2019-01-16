@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h1>Box Office</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>排名</th>
+      <th>实时票房</th>
+      <th>电影名称</th>
+      <th>票房占比</th>
+      <th>上映天数</th>
+      <th>累计票房（万）</th>
+      <th>更新时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for index, row in boxoffice.iterrows() %}
+      <tr>
+        <th scope="row">{{ row['Irank'] }}</th>
+        <td>{{ row['BoxOffice'] }}</td>
+        <td><b>{{ row['MovieName'] }}</b></td>
+        <td>{{ row['boxPer'] }}</td>
+        <td>{{ row['movieDay'] }}</td>
+        <td>{{ row['sumBoxOffice'] }}</td>
+        <td>{{ row['time'] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
